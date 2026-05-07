@@ -1,0 +1,628 @@
+<!--
+PROJECT STRUCTURE
+
+portfolio/
+│
+├── index.html
+├── style.css
+├── script.js
+│
+├── sections/
+│   ├── home.html
+│   ├── about.html
+│   ├── skills.html
+│   ├── projects.html
+│   └── contact.html
+│
+└── assets/
+    ├── images/
+    └── icons/
+
+Each section is written separately below with proper comments.
+You can later convert them into React components easily.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hafiz Syed Muhammad Usman | Full Stack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    * {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #050505;
+      overflow-x: hidden;
+      color: white;
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .gradient-text {
+      background: linear-gradient(to right, #ffffff, #999999);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-bg {
+      background:
+        radial-gradient(circle at top right, rgba(99,102,241,0.3), transparent 30%),
+        radial-gradient(circle at bottom left, rgba(168,85,247,0.2), transparent 30%),
+        #050505;
+    }
+
+    .glow {
+      box-shadow: 0 0 80px rgba(99,102,241,0.3);
+    }
+
+    .card-hover {
+      transition: all 0.4s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-10px);
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .line {
+      height: 1px;
+      width: 100%;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="fixed top-0 w-full z-50 glass">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+      <h1 class="text-2xl font-black tracking-wider">USMAN.</h1>
+
+      <nav class="hidden md:flex items-center gap-10 text-sm text-gray-300 font-medium">
+        <a href="#home" class="hover:text-white transition">Home</a>
+        <a href="#about" class="hover:text-white transition">About</a>
+        <a href="#skills" class="hover:text-white transition">Skills</a>
+        <a href="#projects" class="hover:text-white transition">Projects</a>
+        <a href="#contact" class="hover:text-white transition">Contact</a>
+      </nav>
+
+      <a href="#contact" class="px-5 py-3 rounded-full bg-white text-black font-semibold hover:scale-105 transition">
+        Hire Me
+      </a>
+    </div>
+  </header>
+
+  <!-- ========================= -->
+  <!-- HOME SECTION START -->
+  <!-- ========================= -->
+
+  <!-- HERO -->
+  <section id="home" class="hero-bg min-h-screen flex items-center relative overflow-hidden">
+
+    <div class="absolute top-40 right-20 w-72 h-72 bg-indigo-500 rounded-full blur-[120px] opacity-30"></div>
+    <div class="absolute bottom-20 left-20 w-72 h-72 bg-purple-500 rounded-full blur-[120px] opacity-20"></div>
+
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center pt-32">
+
+      <div>
+        <p class="text-indigo-400 font-semibold tracking-[4px] uppercase mb-5">
+          FULL STACK DEVELOPER • FRONTEND SPECIALIST • MODERN WEB DESIGNER
+        </p>
+
+        <h1 class="text-5xl md:text-7xl font-black leading-tight mb-8">
+          Crafting <span class="gradient-text">Premium Digital</span> Experiences That Help Brands Grow Faster.
+        </h1>
+
+        <p class="text-gray-400 text-lg leading-relaxed max-w-xl mb-10">
+          I’m Hafiz Syed Muhammad Usman, a passionate Full Stack Developer focused on building modern, responsive, and conversion-focused websites. I specialize in creating premium digital experiences with clean UI, smooth interactions, and scalable frontend architecture that help businesses establish a powerful online presence.
+        </p>
+
+        <div class="flex flex-wrap gap-5">
+          <a href="#projects" class="px-8 py-4 rounded-full bg-white text-black font-bold hover:scale-105 transition duration-300">
+            View Portfolio
+          </a>
+
+          <a href="#contact" class="px-8 py-4 rounded-full border border-white/20 hover:border-white transition font-semibold">
+            Let’s Work Together
+          </a>
+        </div>
+
+        <div class="flex gap-12 mt-16">
+          <div>
+            <h2 class="text-4xl font-black">2+</h2>
+            <p class="text-gray-400">Years Experience</p>
+          </div>
+
+          <div>
+            <h2 class="text-4xl font-black">15+</h2>
+            <p class="text-gray-400">Web Projects Built</p>
+          </div>
+
+          <div>
+            <h2 class="text-4xl font-black">24/7</h2>
+            <p class="text-gray-400">Support & Communication</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative flex justify-center lg:justify-end">
+        <div class="glass glow rounded-[40px] p-6 w-[350px] md:w-[430px] animate-float">
+          <img 
+            src="./assets/images/My image.png" 
+            class="rounded-[30px] w-full h-[520px] object-cover"
+            alt="Profile"
+          />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- HOME SECTION END -->
+  <!-- ========================= -->
+
+
+  <!-- ========================= -->
+  <!-- ABOUT SECTION START -->
+  <!-- ========================= -->
+
+  <!-- ABOUT -->
+  <section id="about" class="py-28 px-6">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+
+      <div>
+        <p class="text-indigo-400 font-semibold uppercase tracking-[3px] mb-4">About Me</p>
+
+        <h2 class="text-4xl md:text-5xl font-black leading-tight mb-8">
+          Modern Full Stack Developer Creating High-End Web Experiences.
+        </h2>
+
+        <p class="text-gray-400 text-lg leading-relaxed mb-6">
+          I am currently pursuing a BSCS degree from Rise College while continuously improving my skills in modern web technologies. I focus on building responsive, visually impressive, and business-oriented websites using React, JavaScript, Tailwind CSS, and modern frontend development practices.
+        </p>
+
+        <p class="text-gray-400 text-lg leading-relaxed mb-10">
+          With a strong understanding of frontend development and backend fundamentals, I build modern digital products that combine performance, clean code, and premium user experience. My goal is to deliver websites that create trust, improve engagement, and help businesses grow online.
+        </p>
+
+        <div class="grid grid-cols-2 gap-5">
+          <div class="glass rounded-3xl p-6">
+            <h3 class="text-3xl font-black mb-2">Frontend</h3>
+            <p class="text-gray-400">HTML, CSS, JavaScript, React, Tailwind CSS</p>
+          </div>
+
+          <div class="glass rounded-3xl p-6">
+            <h3 class="text-3xl font-black mb-2">Backend Basics</h3>
+            <p class="text-gray-400">MongoDB, Express.js, APIs, SQL Databases</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass rounded-[40px] p-10">
+        <div class="space-y-8">
+
+          <div>
+            <div class="flex justify-between mb-3">
+              <span class="font-semibold">Frontend Development</span>
+              <span>95%</span>
+            </div>
+            <div class="w-full bg-white/10 rounded-full h-3 overflow-hidden">
+              <div class="bg-white h-full rounded-full" style="width:95%"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between mb-3">
+              <span class="font-semibold">React Development</span>
+              <span>92%</span>
+            </div>
+            <div class="w-full bg-white/10 rounded-full h-3 overflow-hidden">
+              <div class="bg-indigo-500 h-full rounded-full" style="width:92%"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between mb-3">
+              <span class="font-semibold">Responsive Design</span>
+              <span>92%</span>
+            </div>
+            <div class="w-full bg-white/10 rounded-full h-3 overflow-hidden">
+              <div class="bg-purple-500 h-full rounded-full" style="width:88%"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between mb-3">
+              <span class="font-semibold">Backend Fundamentals</span>
+              <span>80%</span>
+            </div>
+            <div class="w-full bg-white/10 rounded-full h-3 overflow-hidden">
+              <div class="bg-pink-500 h-full rounded-full" style="width:90%"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- ABOUT SECTION END -->
+  <!-- ========================= -->
+
+
+  <!-- ========================= -->
+  <!-- SKILLS SECTION START -->
+  <!-- ========================= -->
+
+  <!-- SKILLS -->
+  <section id="skills" class="py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-20">
+        <p class="text-indigo-400 font-semibold uppercase tracking-[3px] mb-4">Skills</p>
+        <h2 class="text-5xl font-black">Technologies I Use</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <div class="glass rounded-[30px] p-8 card-hover">
+          <i data-lucide="code-2" class="w-14 h-14 mb-8 text-indigo-400"></i>
+          <h3 class="text-2xl font-bold mb-4">Frontend</h3>
+          <p class="text-gray-400 leading-relaxed">
+            HTML5, CSS3, JavaScript, React.js, Tailwind CSS, Responsive UI.
+          </p>
+        </div>
+
+        <div class="glass rounded-[30px] p-8 card-hover">
+          <i data-lucide="database" class="w-14 h-14 mb-8 text-purple-400"></i>
+          <h3 class="text-2xl font-bold mb-4">AI & Data</h3>
+          <p class="text-gray-400 leading-relaxed">
+            MongoDB, Express.js, REST APIs, SQL, Backend Fundamentals.
+          </p>
+        </div>
+
+        <div class="glass rounded-[30px] p-8 card-hover">
+          <i data-lucide="layout-dashboard" class="w-14 h-14 mb-8 text-pink-400"></i>
+          <h3 class="text-2xl font-bold mb-4">UI/UX</h3>
+          <p class="text-gray-400 leading-relaxed">
+            Modern UI/UX, animations, premium layouts, conversion-focused interfaces.
+          </p>
+        </div>
+
+        <div class="glass rounded-[30px] p-8 card-hover">
+          <i data-lucide="rocket" class="w-14 h-14 mb-8 text-green-400"></i>
+          <h3 class="text-2xl font-bold mb-4">Optimization</h3>
+          <p class="text-gray-400 leading-relaxed">
+            Performance optimization, SEO structure, accessibility, scalable architecture.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- SKILLS SECTION END -->
+  <!-- ========================= -->
+
+
+  <!-- ========================= -->
+  <!-- PROJECTS SECTION START -->
+  <!-- ========================= -->
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-28 px-6">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-8">
+        <div>
+          <p class="text-indigo-400 font-semibold uppercase tracking-[3px] mb-4">Portfolio</p>
+          <h2 class="text-5xl font-black leading-tight">Featured Projects</h2>
+        </div>
+
+        <p class="text-gray-400 max-w-xl text-lg">
+          A collection of modern premium projects focused on user experience, performance, and business growth.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-10">
+
+        <div class="glass rounded-[40px] overflow-hidden card-hover">
+          <img 
+            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop"
+            class="w-full h-[320px] object-cover"
+            alt="Project"
+          />
+
+          <div class="p-10">
+            <div class="flex gap-3 mb-5 flex-wrap">
+              <span class="px-4 py-2 rounded-full bg-white/10 text-sm">React</span>
+              <span class="px-4 py-2 rounded-full bg-white/10 text-sm">Tailwind</span>
+              <span class="px-4 py-2 rounded-full bg-white/10 text-sm">Framer Motion</span>
+            </div>
+
+            <h3 class="text-3xl font-black mb-4">Modern Fashion eCommerce Website</h3>
+            <p class="text-gray-400 leading-relaxed mb-8">
+              High-converting premium fashion eCommerce website with modern UI, animations, and optimized mobile shopping experience.
+            </p>
+
+            <button class="px-6 py-3 bg-white text-black rounded-full font-bold hover:scale-105 transition">
+              View Project
+            </button>
+          </div>
+        </div>
+
+        <div class="glass rounded-[40px] overflow-hidden card-hover">
+          <img 
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop"
+            class="w-full h-[320px] object-cover"
+            alt="Project"
+          />
+
+          <div class="p-10">
+            <div class="flex gap-3 mb-5 flex-wrap">
+              <span class="px-4 py-2 rounded-full bg-white/10 text-sm">AI</span>
+              <span class="px-4 py-2 rounded-full bg-white/10 text-sm">Python</span>
+              <span class="px-4 py-2 rounded-full bg-white/10 text-sm">Data</span>
+            </div>
+
+            <h3 class="text-3xl font-black mb-4">Premium Business Dashboard</h3>
+            <p class="text-gray-400 leading-relaxed mb-8">
+              Intelligent dashboard platform with analytics, automation, and scalable data workflows.
+            </p>
+
+            <button class="px-6 py-3 bg-white text-black rounded-full font-bold hover:scale-105 transition">
+              View Project
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- PROJECTS SECTION END -->
+  <!-- ========================= -->
+
+
+  <!-- ========================= -->
+  <!-- EXPERIENCE TIMELINE -->
+  <!-- ========================= -->
+
+  <section class="py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-20">
+        <p class="text-indigo-400 font-semibold uppercase tracking-[3px] mb-4">Experience</p>
+        <h2 class="text-5xl font-black">Professional Journey</h2>
+      </div>
+
+      <div class="glass rounded-[40px] p-10">
+        <div class="border-l border-white/10 pl-10 space-y-12">
+
+          <div>
+            <p class="text-indigo-400 font-semibold mb-2">2024 - Present</p>
+            <h3 class="text-3xl font-black mb-3">Frontend Developer</h3>
+            <p class="text-gray-400 leading-relaxed">
+              Worked on responsive business websites, landing pages, eCommerce interfaces, and premium frontend experiences using React, JavaScript, Tailwind CSS, and modern UI/UX practices.
+            </p>
+          </div>
+
+          <div>
+            <p class="text-purple-400 font-semibold mb-2">Freelance Experience</p>
+            <h3 class="text-3xl font-black mb-3">Freelance Web Developer</h3>
+            <p class="text-gray-400 leading-relaxed">
+              Delivered modern frontend solutions for clients including portfolio websites, landing pages, responsive redesigns, and premium business interfaces.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================= -->
+  <!-- EDUCATION TIMELINE -->
+  <!-- ========================= -->
+
+  <section class="py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-20">
+        <p class="text-indigo-400 font-semibold uppercase tracking-[3px] mb-4">Education</p>
+        <h2 class="text-5xl font-black">Academic Background</h2>
+      </div>
+
+      <div class="glass rounded-[40px] p-10 text-center">
+        <p class="text-indigo-400 font-semibold mb-4">BS Computer Science</p>
+        <h3 class="text-4xl font-black mb-4">Rise College</h3>
+        <p class="text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto">
+          Currently pursuing BSCS with a strong focus on software engineering, frontend development, modern web technologies, and scalable application architecture.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================= -->
+  <!-- CERTIFICATIONS -->
+  <!-- ========================= -->
+
+  <section class="py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-20">
+        <p class="text-indigo-400 font-semibold uppercase tracking-[3px] mb-4">Certifications</p>
+        <h2 class="text-5xl font-black">Professional Certifications</h2>
+      </div>
+
+      <div class="glass rounded-[40px] p-10 flex flex-col items-center text-center">
+        <div class="w-auto h-auto rounded-[30px] border-2 border-dashed border-white/20 flex items-center justify-center text-gray-500 text-xl mb-8">
+          <img src="./assets/images/Certificate.png" width="700px" height="300px" alt="Certificate">
+        </div>
+
+        <h3 class="text-3xl font-black mb-3">ARFA Software Technology Park</h3>
+        <p class="text-gray-400 max-w-2xl">
+          Professional certification focused on modern frontend development technologies and responsive web application development.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- TESTIMONIAL -->
+  <section class="py-24 px-6">
+    <div class="max-w-5xl mx-auto glass rounded-[50px] p-12 text-center">
+      <p class="text-2xl md:text-4xl font-bold leading-relaxed mb-10">
+        “Usman delivered a premium-quality website with exceptional attention to detail. The design, responsiveness, and user experience exceeded our expectations and gave our brand a highly professional image.”
+      </p>
+
+      <div>
+        <h4 class="text-xl font-bold">Daniel Carter</h4>
+        <p class="text-gray-400">Founder — DigitalCraft Studio</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- CONTACT SECTION START -->
+  <!-- ========================= -->
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-28 px-6">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+
+      <div>
+        <p class="text-indigo-400 font-semibold uppercase tracking-[3px] mb-4">Contact</p>
+        <h2 class="text-5xl font-black leading-tight mb-8">
+          Let’s Build Something Outstanding Together.
+        </h2>
+
+        <p class="text-gray-400 text-lg leading-relaxed mb-10">
+          Available for freelance projects, business websites, landing pages, eCommerce stores, portfolio websites, responsive frontend development, and modern web application design.
+        </p>
+
+        <div class="space-y-6">
+
+          <div class="flex items-center gap-5">
+            <div class="w-14 h-14 rounded-2xl glass flex items-center justify-center">
+              <i data-lucide="mail"></i>
+            </div>
+            <div>
+              <p class="text-gray-400">Email</p>
+              <h3 class="font-semibold text-lg">codewithdeveloper55@gmail.com</h3>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-5">
+            <div class="w-14 h-14 rounded-2xl glass flex items-center justify-center">
+              <i data-lucide="linkedin"></i>
+            </div>
+            <div>
+              <p class="text-gray-400">GitHub</p>
+              <h3 class="font-semibold text-lg">github.com/Hafiz-Usman55</h3>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-5">
+            <div class="w-14 h-14 rounded-2xl glass flex items-center justify-center">
+              <i data-lucide="github"></i>
+            </div>
+            <div>
+              <p class="text-gray-400">Location</p>
+              <h3 class="font-semibold text-lg">Pakistan, Lahore</h3>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="glass rounded-[40px] p-10">
+        <form class="space-y-6">
+
+          <div>
+            <input 
+              type="text" 
+              placeholder="Your Name"
+              class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-5 outline-none focus:border-white transition"
+            />
+          </div>
+
+          <div>
+            <input 
+              type="email" 
+              placeholder="Your Email"
+              class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-5 outline-none focus:border-white transition"
+            />
+          </div>
+
+          <div>
+            <textarea 
+              rows="6"
+              placeholder="Tell me about your project"
+              class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-5 outline-none focus:border-white transition resize-none"
+            ></textarea>
+          </div>
+
+          <button class="w-full bg-white text-black py-5 rounded-2xl font-black text-lg hover:scale-[1.02] transition duration-300">
+            Send Message
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- CONTACT SECTION END -->
+  <!-- ========================= -->
+
+
+  <!-- FOOTER -->
+  <footer class="py-10 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="line mb-8"></div>
+
+      <div class="flex flex-col md:flex-row gap-5 items-center justify-between">
+        <h2 class="text-2xl font-black tracking-wider">USMAN.</h2>
+
+        <p class="text-gray-500 text-center md:text-right">
+          © 2026 Hafiz Syed Muhammad Usman. Crafted with premium modern web design.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+ 
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
